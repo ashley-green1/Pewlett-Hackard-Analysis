@@ -1,4 +1,4 @@
--- Create retirement_titles table
+-- Create Retirement Titles table
 SELECT  e.emp_no,
         e.first_name,
         e.last_name,
@@ -11,3 +11,15 @@ INNER JOIN titles AS ts
 	ON (e.emp_no = ts.emp_no)
 WHERE e.birth_date BETWEEN '1952-01-01' AND '1955-12-31'
 ORDER BY e.emp_no ASC;
+
+
+-- Create Unique Titles table
+SELECT DISTINCT ON (rt.emp_no)
+	   rt.emp_no,
+	   rt.first_name,
+	   rt.last_name,
+	   rt.title
+INTO unique_titles
+FROM retirement_titles AS rt
+ORDER BY rt.emp_no ASC, rt.to_date DESC;
+
