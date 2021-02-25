@@ -185,3 +185,4 @@ INNER JOIN dept_emp AS de
 	INNER JOIN departments AS d
 		ON (de.dept_no = d.dept_no)
 WHERE d.dept_no IN ('d007', 'd005');
+
